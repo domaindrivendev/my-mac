@@ -1,0 +1,23 @@
+---
+- name: download iterm2
+  get_url:
+    url: https://iterm2.com/downloads/stable/latest
+    dest: /tmp/iterm2-latest.zip
+
+- name: install iterm2
+  unarchive:
+    src: /tmp/iterm2-latest.zip
+    dest: /Applications/
+
+- name: install tmux
+  homebrew: name=tmux state=latest
+
+- name: copy tmux.conf
+  copy: src=tmux.conf dest=~/.tmux.conf
+
+- name: copy tmux_session.sh
+  copy: src=tmux_session.sh dest=/usr/local/bin/tmux_session.sh mode=0755
+  tags: tmux
+
+- name: copy bash_profile 
+  copy: src=bash_profile dest=~/.bash_profile

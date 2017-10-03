@@ -1,0 +1,20 @@
+---
+- name: install vim
+  homebrew: name=vim state=present
+
+- name: clone vundle for plugin management
+  git:
+    repo: https://github.com/VundleVim/Vundle.vim.git
+    dest: ~/.vim/bundle/Vundle.vim
+
+- name: create ./vim/colors for custom color schemes
+  file: path=~/.vim/colors state=directory
+
+- name: copy monakai color scheme
+  copy: src=monakai.vim dest=~/.vim/colors/monokai.vim
+
+- name: copy vimrc
+  copy: src=vimrc dest=~/.vimrc
+
+- name: install configured plugins
+  shell: vim +PluginInstall +qall

@@ -1,0 +1,4 @@
+---
+- name: install qt@5.5 to support capybara-webkit
+  homebrew: name=qt@5.5 state=linked
+  tags: wip

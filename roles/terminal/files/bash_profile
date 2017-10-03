@@ -1,0 +1,12 @@
+# Enable bash-git-prompt for enhanced prompt
+if [ -f "$(brew --prefix)/opt/bash-git-prompt/share/gitprompt.sh" ]; then
+  __GIT_PROMPT_DIR=$(brew --prefix)/opt/bash-git-prompt/share
+  source "$(brew --prefix)/opt/bash-git-prompt/share/gitprompt.sh"
+fi
+
+# Add brew installed qt to path
+export PATH="$(brew --prefix qt@5.5)/bin:$PATH"
+
+# Aliases
+alias be="bundle exec "
+alias tms="tmux_session.sh "
