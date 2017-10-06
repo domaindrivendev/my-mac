@@ -1,0 +1,9 @@
+---
+- name: install awscli
+  homebrew: name=awscli state=latest
+
+- name: create aws config dir
+  file: dest=~/.aws state=directory
+
+- name: copy aws config file
+  copy: src=config dest=~/.aws/config

@@ -1,0 +1,3 @@
+---
+- name: install python
+  homebrew: name=python state=latest
