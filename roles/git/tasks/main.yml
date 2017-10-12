@@ -8,3 +8,9 @@
 
 - name: copy gitconfig
   template: src=gitconfig.j2 dest=~/.gitconfig
+
+- name: add git specifics to .bash_profile.d
+  copy:
+    src: bash_profile.d/git.sh
+    dest: ~/.bash_profile.d/git.sh
+    mode: 0755

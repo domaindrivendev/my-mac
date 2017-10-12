@@ -2,10 +2,13 @@
 - hosts: 127.0.0.1
   connection: local
   roles:
-    - { role: git, tags: git }
-    - { role: vim, tags: vim }
-    - { role: python, tags: python }
-    - { role: ruby, tags: ruby }
-    - { role: qt, tags: qt }
-    - { role: awscli, tags: awscli }
     - { role: terminal, tags: terminal }
+    - { role: vim, tags: vim }
+    - { role: git, tags: git }
+    - { role: ruby, tags: ruby }
+    - { role: nodejs, tags: nodejs }
+    - { role: python, tags: python }
+    - { role: awscli, tags: awscli }
+    - { role: virtualbox, tags: virtualbox }
+    - { role: kubectl, tags: kubectl }
+    - { role: minikube, tags: minikube }

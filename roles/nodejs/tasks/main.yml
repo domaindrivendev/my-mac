@@ -1,0 +1,3 @@
+---
+- name: install nodejs
+  homebrew: name=nodejs state=latest

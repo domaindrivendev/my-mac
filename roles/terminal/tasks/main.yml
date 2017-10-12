@@ -1,4 +1,13 @@
 ---
+- name: create .bash_profile.d to store profile hooks
+  file:
+    dest: ~/.bash_profile.d
+    state: directory
+    mode: 0755
+
+- name: copy bash_profile
+  copy: src=bash_profile dest=~/.bash_profile
+
 - name: download iterm2
   get_url:
     url: https://iterm2.com/downloads/stable/latest
@@ -16,8 +25,14 @@
   copy: src=tmux.conf dest=~/.tmux.conf
 
 - name: copy tmux_session.sh
-  copy: src=tmux_session.sh dest=/usr/local/bin/tmux_session.sh mode=0755
+  copy:
+    src: tmux_session.sh
+    dest: /usr/local/bin/tmux_session.sh
+    mode: 0755
   tags: tmux
 
-- name: copy bash_profile 
-  copy: src=bash_profile dest=~/.bash_profile
+- name: add tmux specifics to .bash_profile.d
+  copy:
+    src: bash_profile.d/tmux.sh
+    dest: ~/.bash_profile.d/tmux.sh
+    mode: 0755
