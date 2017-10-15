@@ -1,5 +1,3 @@
-#!/bin/zsh
-
 PROJ_NAME=$1
 
 # kill session if it already exists
@@ -13,7 +11,7 @@ tmux send-keys "cd ~/src/$PROJ_NAME" Enter
 
 # new window for project 
 tmux new-window -t $PROJ_NAME:1
-tmux split-window -t $PROJ_NAME:1 -h -p 25
+tmux split-window -t $PROJ_NAME:1 -h -p 10
 tmux send-keys "cd ~/src/$PROJ_NAME" Enter
 tmux split-window -t $PROJ_NAME:1 -v -p 20
 tmux send-keys "cd ~/src/$PROJ_NAME" Enter
