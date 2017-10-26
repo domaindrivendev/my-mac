@@ -12,3 +12,4 @@
     - { role: virtualbox, tags: virtualbox }
     - { role: kubectl, tags: kubectl }
     - { role: minikube, tags: minikube }
+    - { role: terraform, tags: terraform }
