@@ -1,3 +1,9 @@
 ---
 - name: install kubectl
   homebrew: name=kubectl state=latest
+
+- name: add kubectl specifics to .bash_profile.d
+  copy:
+    src: bash_profile.d/kubectl.sh
+    dest: ~/.bash_profile.d/kubectl.sh
+    mode: 0755
