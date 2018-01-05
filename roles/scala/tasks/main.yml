@@ -1,0 +1,3 @@
+---
+- name: install scala
+  homebrew: name=scala state=latest

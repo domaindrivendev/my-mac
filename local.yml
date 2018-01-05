@@ -13,3 +13,6 @@
     - { role: kubectl, tags: kubectl }
     - { role: minikube, tags: minikube }
     - { role: terraform, tags: terraform }
+    - { role: java, tags: java }
+    - { role: scala, tags: scala }
+    - { role: spark, tags: spark }
