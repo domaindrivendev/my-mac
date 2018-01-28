@@ -7,3 +7,9 @@
     src: bash_profile.d/kubectl.sh
     dest: ~/.bash_profile.d/kubectl.sh
     mode: 0755
+
+- name: install helm
+  homebrew: name=kubernetes-helm state=latest
+
+- name: install minikube
+  homebrew_cask: name=minikube state=present

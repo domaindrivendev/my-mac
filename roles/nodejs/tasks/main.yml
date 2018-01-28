@@ -4,3 +4,6 @@
 
 - name: install bower
   npm: name=bower global=yes state=latest
+
+- name: install yarn
+  homebrew: name=yarn state=latest

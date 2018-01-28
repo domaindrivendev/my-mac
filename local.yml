@@ -10,8 +10,7 @@
     - { role: python, tags: python }
     - { role: awscli, tags: awscli }
     - { role: virtualbox, tags: virtualbox }
-    - { role: kubectl, tags: kubectl }
-    - { role: minikube, tags: minikube }
+    - { role: kube, tags: kube }
     - { role: terraform, tags: terraform }
     - { role: java, tags: java }
     - { role: scala, tags: scala }

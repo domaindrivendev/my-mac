@@ -36,3 +36,6 @@
     src: bash_profile.d/tmux.sh
     dest: ~/.bash_profile.d/tmux.sh
     mode: 0755
+
+- name: install jq
+  homebrew: name=jq state=latest
