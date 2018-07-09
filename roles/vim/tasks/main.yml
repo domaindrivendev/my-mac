@@ -2,6 +2,9 @@
 - name: install vim
   homebrew: name=vim state=present
 
+- name: install ack
+  homebrew: name=ack state=present
+
 - name: clone vundle for plugin management
   git:
     repo: https://github.com/VundleVim/Vundle.vim.git
