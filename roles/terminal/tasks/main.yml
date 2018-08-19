@@ -12,6 +12,7 @@
   get_url:
     url: https://iterm2.com/downloads/stable/latest
     dest: /tmp/iterm2-latest.zip
+    validate_certs: false
 
 - name: install iterm2
   unarchive:

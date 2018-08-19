@@ -1,0 +1,6 @@
+[
+  { "key": "ctrl+p", "command": "workbench.action.quickOpen" },
+  { "key": "ctrl+n", "command": "workbench.action.toggleSidebarVisibility" },
+  { "key": "ctrl+j", "command": "workbench.action.togglePanel" },
+  { "key": "ctrl+r a", "command": "dotnet-test-explorer.runAllTests" }
+]

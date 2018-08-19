@@ -1,0 +1,19 @@
+---
+- name: install vscode
+  homebrew_cask: name=visual-studio-code state=present
+
+- name: enable key repeating
+  command: defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false
+
+- name: install extensions
+  command: code --install-extension {{item}}
+  with_items:
+    - vscodevim.vim
+    - ms-vscode.csharp
+    - formulahendry.dotnet-test-explorer
+
+- name: copy settings
+  copy: src={{item}} dest="~/Library/Application Support/Code/User/{{item}}"
+  with_items:
+    - settings.json
+    - keybindings.json
