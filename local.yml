@@ -7,7 +7,6 @@
     - { role: git, tags: git }
     - { role: ruby, tags: ruby }
     - { role: nodejs, tags: nodejs }
-    - { role: python, tags: python }
     - { role: awscli, tags: awscli }
     - { role: virtualbox, tags: virtualbox }
     - { role: kube, tags: kube }
