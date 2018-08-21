@@ -11,6 +11,7 @@
     - vscodevim.vim
     - ms-vscode.csharp
     - formulahendry.dotnet-test-explorer
+    - ms-mssql.mssql
 
 - name: copy settings
   copy: src={{item}} dest="~/Library/Application Support/Code/User/{{item}}"

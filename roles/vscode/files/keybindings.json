@@ -2,5 +2,7 @@
   { "key": "ctrl+p", "command": "workbench.action.quickOpen" },
   { "key": "ctrl+n", "command": "workbench.action.toggleSidebarVisibility" },
   { "key": "ctrl+j", "command": "workbench.action.togglePanel" },
-  { "key": "ctrl+r a", "command": "dotnet-test-explorer.runAllTests" }
+  { "key": "ctrl+f p", "command": "workbench.action.terminal.focus" },
+  { "key": "ctrl+r a", "command": "dotnet-test-explorer.runAllTests" },
+  { "key": "ctrl+r r", "command": "editor.action.rename" }
 ]
