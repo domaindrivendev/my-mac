@@ -10,14 +10,11 @@
   shell: rbenv install {{ ruby_version }}
   when: ruby_version not in current_ruby_versions.stdout
 
-- name: install bundler
-  gem: name=bundler state=latest user_install=no
-
-- name: install qt@5.5 to support capybara-webkit
-  homebrew: name=qt@5.5 state=linked
-
 - name: add ruby specifics to .bash_profile.d
   copy:
     src: bash_profile.d/ruby.sh
     dest: ~/.bash_profile.d/ruby.sh
     mode: 0755
+
+- name: install bundler
+  gem: name=bundler state=latest user_install=no
