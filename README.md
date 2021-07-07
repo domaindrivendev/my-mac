@@ -28,3 +28,4 @@ ansible-playbook local.yml --extra-vars "git_global_name=richie git_global_email
 The following defaults can be overriden with this technique:
 * [roles/git/defaults/main.yml](roles/git/defaults/main.yml)
 * [roles/ruby/defaults/main.yml](roles/ruby/defaults/main.yml)
+* [roles/nodejs/defaults/main.yml](roles/nodejs/defaults/main.yml)

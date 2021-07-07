@@ -1,9 +1,14 @@
 ---
-- name: install nodejs
-  homebrew: name=nodejs state=latest
+- name: download nvm
+  get_url:
+    url: https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh
+    dest: /tmp/nvm_install.sh
 
-- name: install bower
-  npm: name=bower global=yes state=latest
+- name: install nvm
+  shell: bash /tmp/nvm_install.sh
+
+- name: install nodejs {{ node_version }}
+  shell: source ~/.bash_profile && nvm install {{ node_version }} && nvm alias default {{ node_version }}
 
 - name: install yarn
   homebrew: name=yarn state=latest
