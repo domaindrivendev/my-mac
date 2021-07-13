@@ -4,14 +4,14 @@
   roles:
     - { role: terminal, tags: terminal }
     - { role: vim, tags: vim }
+    - { role: vscode, tags: vscode }
     - { role: git, tags: git }
     - { role: ruby, tags: ruby }
     - { role: nodejs, tags: nodejs }
-    #- { role: awscli, tags: awscli }
+    - { role: awscli, tags: awscli }
     #- { role: virtualbox, tags: virtualbox }
     #- { role: kube, tags: kube }
     #- { role: terraform, tags: terraform }
     #- { role: java, tags: java }
     #- { role: scala, tags: scala }
     #- { role: spark, tags: spark }
-    #- { role: vscode, tags: vscode }

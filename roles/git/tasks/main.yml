@@ -1,10 +1,7 @@
 ---
 - name: install git + tools
-  homebrew: name={{ item }} state=latest
-  with_items:
-    - git
-    - git-extras
-    - bash-git-prompt
+  homebrew:
+    name: [ 'git', 'git-extras', 'bash-git-prompt' ]
 
 - name: copy gitconfig
   template: src=gitconfig.j2 dest=~/.gitconfig

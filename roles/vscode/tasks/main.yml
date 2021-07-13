@@ -1,6 +1,6 @@
 ---
 - name: install vscode
-  homebrew_cask: name=visual-studio-code state=present
+  shell: brew install visual-studio-code --cask
 
 - name: enable key repeating
   command: defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false
@@ -9,9 +9,17 @@
   command: code --install-extension {{item}}
   with_items:
     - vscodevim.vim
-    - ms-vscode.csharp
+    - ms-dotnettools.csharp
     - formulahendry.dotnet-test-explorer
     - ms-mssql.mssql
+    - editorconfig.editorconfig
+    - dbaeumer.vscode-eslint
+    - esbenp.prettier-vscode
+    - amatiasq.sort-imports
+    - mikestead.dotenv
+    - msjsdiag.debugger-for-chrome
+    - stylelint.vscode-stylelint
+    - clinyong.vscode-css-modules
 
 - name: copy settings
   copy: src={{item}} dest="~/Library/Application Support/Code/User/{{item}}"
