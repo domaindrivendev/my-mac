@@ -1,0 +1,21 @@
+---
+- name: install rvm
+  shell: curl -sSL https://get.rvm.io | bash -s stable --auto-dotfiles
+
+- name: register current_ruby_versions
+  shell: source ~/.bash_profile && rvm list
+  register: current_ruby_versions
+
+- name: install ruby {{ ruby_version }} if not present
+  shell: source ~/.bash_profile && rvm install {{ ruby_version }}
+  when: ruby_version not in current_ruby_versions.stdout
+  # If issues: see https://github.com/rvm/rvm/issues/4908#issuecomment-630091536
+
+- name: install bundler
+  gem: name=bundler state=latest user_install=no
+
+- name: add ruby specifics to .bash_profile.d
+  copy:
+    src: bash_profile.d/rvm.sh
+    dest: ~/.bash_profile.d/rvm.sh
+    mode: 0755

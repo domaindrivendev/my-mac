@@ -1,20 +1,6 @@
 ---
-- name: install rbenv
-  homebrew: name=rbenv state=latest
+- include_tasks: rbenv.yml
+  when: use_rvm == 'false'
 
-- name: register current_ruby_versions
-  shell: rbenv versions
-  register: current_ruby_versions
-
-- name: install ruby {{ ruby_version }} if not present
-  shell: rbenv install {{ ruby_version }}
-  when: ruby_version not in current_ruby_versions.stdout
-
-- name: add ruby specifics to .bash_profile.d
-  copy:
-    src: bash_profile.d/ruby.sh
-    dest: ~/.bash_profile.d/ruby.sh
-    mode: 0755
-
-- name: install bundler
-  gem: name=bundler state=latest user_install=no
+- include_tasks: rvm.yml
+  when: use_rvm == 'true'

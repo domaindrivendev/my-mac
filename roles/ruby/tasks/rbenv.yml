@@ -1,0 +1,20 @@
+---
+- name: install rbenv
+  homebrew: name=rbenv state=latest
+
+- name: register current_ruby_versions
+  shell: rbenv versions
+  register: current_ruby_versions
+
+- name: install ruby {{ ruby_version }} if not present
+  shell: rbenv install {{ ruby_version }}
+  when: ruby_version not in current_ruby_versions.stdout
+
+- name: install bundler
+  gem: name=bundler state=latest user_install=no
+
+- name: add ruby specifics to .bash_profile.d
+  copy:
+    src: bash_profile.d/rbenv.sh
+    dest: ~/.bash_profile.d/rbenv.sh
+    mode: 0755
