@@ -1,14 +1,15 @@
 ---
 - name: install rvm
-  shell: curl -sSL https://get.rvm.io | bash -s stable --auto-dotfiles
+  shell: >
+    curl -sSL https://get.rvm.io | bash -s stable --ignore-dotfiles
+  args:
+    creates: $HOME/.rvm/scripts/rvm
 
-- name: register current_ruby_versions
-  shell: source ~/.bash_profile && rvm list
-  register: current_ruby_versions
-
-- name: install ruby {{ ruby_version }} if not present
-  shell: source ~/.bash_profile && rvm install {{ ruby_version }}
-  when: ruby_version not in current_ruby_versions.stdout
+- name: install ruby {{ ruby_version }}
+  shell: >
+    source $HOME/.rvm/scripts/rvm; rvm install {{ ruby_version }}; rvm --default use {{ ruby_version }}
+  args:
+    creates: $HOME/.rvm/rubies/ruby-{{ ruby_version }}
   # If issues: see https://github.com/rvm/rvm/issues/4908#issuecomment-630091536
 
 - name: install bundler

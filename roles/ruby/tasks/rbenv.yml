@@ -2,13 +2,10 @@
 - name: install rbenv
   homebrew: name=rbenv state=latest
 
-- name: register current_ruby_versions
-  shell: rbenv versions
-  register: current_ruby_versions
-
 - name: install ruby {{ ruby_version }} if not present
   shell: rbenv install {{ ruby_version }}
-  when: ruby_version not in current_ruby_versions.stdout
+  args:
+    creates: $HOME/.rbenv/versions/{{ ruby_version }}
 
 - name: install bundler
   gem: name=bundler state=latest user_install=no

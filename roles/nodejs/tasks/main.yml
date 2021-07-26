@@ -1,14 +1,21 @@
 ---
-- name: download nvm
-  get_url:
-    url: https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh
-    dest: /tmp/nvm_install.sh
-
 - name: install nvm
-  shell: bash /tmp/nvm_install.sh
+  shell: >
+    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
+  args:
+    creates: $HOME/.nvm/nvm.sh
 
 - name: install nodejs {{ node_version }}
-  shell: source ~/.bash_profile && nvm install {{ node_version }} && nvm alias default {{ node_version }}
+  shell: >
+    source $HOME/.nvm/nvm.sh; nvm install {{ node_version }}; nvm alias default {{ node_version }}
+  args:
+    creates: $HOME/.nvm/versions/node/{{ node_version }}
+
+- name: add node specifics to .bash_profile.d
+  copy:
+    src: bash_profile.d/node.sh
+    dest: ~/.bash_profile.d/node.sh
+    mode: 0755
 
 - name: install yarn
   homebrew: name=yarn state=latest

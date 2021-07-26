@@ -1,6 +1,6 @@
 ---
 - include_tasks: rbenv.yml
-  when: use_rvm == 'false'
+  when: use_rvm != 'true'
 
 - include_tasks: rvm.yml
   when: use_rvm == 'true'

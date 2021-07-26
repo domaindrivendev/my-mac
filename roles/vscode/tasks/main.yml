@@ -1,12 +1,14 @@
 ---
 - name: install vscode
   shell: brew install visual-studio-code --cask
+  args:
+    creates: "/Applications/Visual Studio Code.app"
 
 - name: enable key repeating
-  command: defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false
+  shell: defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false
 
 - name: install extensions
-  command: code --install-extension {{item}}
+  shell: code --install-extension {{item}}
   with_items:
     - vscodevim.vim
     - ms-dotnettools.csharp

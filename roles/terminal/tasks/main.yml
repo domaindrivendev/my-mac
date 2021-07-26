@@ -8,16 +8,10 @@
 - name: copy bash_profile
   copy: src=bash_profile dest=~/.bash_profile
 
-- name: download iterm2
-  get_url:
-    url: https://iterm2.com/downloads/stable/latest
-    dest: /tmp/iterm2-latest.zip
-    validate_certs: false
-
 - name: install iterm2
-  unarchive:
-    src: /tmp/iterm2-latest.zip
-    dest: /Applications/
+  shell: brew install iterm2 --cask
+  args:
+    creates: /Applications/iTerm.app
 
 - name: install tmux
   homebrew: name=tmux state=latest
