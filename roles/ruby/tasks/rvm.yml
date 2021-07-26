@@ -7,16 +7,13 @@
 
 - name: install ruby {{ ruby_version }}
   shell: >
-    source $HOME/.rvm/scripts/rvm; rvm install {{ ruby_version }}; rvm --default use {{ ruby_version }}
+    source $HOME/.rvm/scripts/rvm && rvm install {{ ruby_version }} && rvm --default use {{ ruby_version }}
   args:
     creates: $HOME/.rvm/rubies/ruby-{{ ruby_version }}
   # If issues: see https://github.com/rvm/rvm/issues/4908#issuecomment-630091536
 
-- name: install bundler
-  gem: name=bundler state=latest user_install=no
-
-- name: add ruby specifics to .bash_profile.d
+- name: add ruby specifics to .zshrc.d
   copy:
-    src: bash_profile.d/rvm.sh
-    dest: ~/.bash_profile.d/rvm.sh
+    src: .zshrc.d/rvm.sh
+    dest: ~/.zshrc.d/rvm.sh
     mode: 0755

@@ -7,14 +7,14 @@
 
 - name: install nodejs {{ node_version }}
   shell: >
-    source $HOME/.nvm/nvm.sh; nvm install {{ node_version }}; nvm alias default {{ node_version }}
+    source $HOME/.nvm/nvm.sh && nvm install {{ node_version }} && nvm alias default {{ node_version }}
   args:
     creates: $HOME/.nvm/versions/node/{{ node_version }}
 
-- name: add node specifics to .bash_profile.d
+- name: add node specifics to .zshrc.d
   copy:
-    src: bash_profile.d/node.sh
-    dest: ~/.bash_profile.d/node.sh
+    src: .zshrc.d/node.sh
+    dest: ~/.zshrc.d/node.sh
     mode: 0755
 
 - name: install yarn

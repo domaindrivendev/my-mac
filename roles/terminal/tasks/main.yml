@@ -1,12 +1,12 @@
 ---
-- name: create .bash_profile.d to store profile hooks
+- name: create .zshrc.d to store profile hooks
   file:
-    dest: ~/.bash_profile.d
+    dest: ~/.zshrc.d
     state: directory
     mode: 0755
 
-- name: copy bash_profile
-  copy: src=bash_profile dest=~/.bash_profile
+- name: copy .zshrc
+  copy: src=.zshrc dest=~/.zshrc
 
 - name: install iterm2
   shell: brew install iterm2 --cask
@@ -19,17 +19,10 @@
 - name: copy tmux.conf
   copy: src=tmux.conf dest=~/.tmux.conf
 
-- name: copy tmux_session.sh
+- name: add tmux specifics to .zshrc.d
   copy:
-    src: tmux_session.sh
-    dest: /usr/local/bin/tmux_session.sh
-    mode: 0755
-  tags: tmux
-
-- name: add tmux specifics to .bash_profile.d
-  copy:
-    src: bash_profile.d/tmux.sh
-    dest: ~/.bash_profile.d/tmux.sh
+    src: .zshrc.d/tmux.sh
+    dest: ~/.zshrc.d/tmux.sh
     mode: 0755
 
 - name: install jq

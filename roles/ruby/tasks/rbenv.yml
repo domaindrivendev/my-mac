@@ -7,11 +7,8 @@
   args:
     creates: $HOME/.rbenv/versions/{{ ruby_version }}
 
-- name: install bundler
-  gem: name=bundler state=latest user_install=no
-
-- name: add ruby specifics to .bash_profile.d
+- name: add ruby specifics to .zshrc.d
   copy:
-    src: bash_profile.d/rbenv.sh
-    dest: ~/.bash_profile.d/rbenv.sh
+    src: .zshrc.d/rbenv.sh
+    dest: ~/.zshrc.d/rbenv.sh
     mode: 0755

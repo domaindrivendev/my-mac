@@ -1,4 +1,0 @@
-# Source any files under .bash_profile.d
-for file in ~/.bash_profile.d/*.sh; do
-  source $file
-done
