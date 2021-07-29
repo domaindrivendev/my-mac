@@ -4,11 +4,8 @@
   args:
     creates: "/Applications/Visual Studio Code.app"
 
-- name: enable key repeating
-  shell: defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false
-
 - name: install extensions
-  shell: code --install-extension {{item}}
+  shell: /Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin/code --install-extension {{item}}
   with_items:
     - vscodevim.vim
     - ms-dotnettools.csharp
@@ -22,9 +19,19 @@
     - msjsdiag.debugger-for-chrome
     - stylelint.vscode-stylelint
     - clinyong.vscode-css-modules
+    - ms-azuretools.vscode-docker
 
 - name: copy settings
   copy: src={{item}} dest="~/Library/Application Support/Code/User/{{item}}"
   with_items:
     - settings.json
     - keybindings.json
+
+- name: enable key repeating
+  shell: defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false
+
+- name: add vscode specifics to .zshrc.d
+  copy:
+    src: .zshrc.d/vscode.sh
+    dest: ~/.zshrc.d/vscode.sh
+    mode: 0755
