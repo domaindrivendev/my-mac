@@ -10,6 +10,7 @@
     - { role: nodejs, tags: nodejs }
     - { role: awscli, tags: awscli }
     - { role: java, tags: java }
+    - { role: python, tags: python }
     #- { role: virtualbox, tags: virtualbox }
     #- { role: kube, tags: kube }
     #- { role: terraform, tags: terraform }
