@@ -20,6 +20,7 @@
     - stylelint.vscode-stylelint
     - clinyong.vscode-css-modules
     - ms-azuretools.vscode-docker
+    - Tyriar.sort-lines
 
 - name: copy settings
   copy: src={{item}} dest="~/Library/Application Support/Code/User/{{item}}"
