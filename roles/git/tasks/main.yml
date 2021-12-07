@@ -6,6 +6,9 @@
 - name: copy gitconfig
   template: src=gitconfig.j2 dest=~/.gitconfig
 
+- name: copy global .gitignore file
+  copy: src=gitignore dest=~/.gitignore
+
 - name: add git specifics to .zshrc.d
   copy:
     src: .zshrc.d/git.sh
