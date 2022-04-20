@@ -11,5 +11,8 @@
     }
   ],
   "dotnet-test-explorer.testProjectPath": "**/*Test*csproj",
-  "dotnet-test-explorer.autoExpandTree": true
+  "dotnet-test-explorer.autoExpandTree": true,
+  "[csharp]": {
+    "editor.tabSize": 4,
+  }
 }
