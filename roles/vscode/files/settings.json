@@ -1,17 +1,18 @@
 {
+  "dotnet-test-explorer.autoExpandTree": true,
+  "dotnet-test-explorer.testProjectPath": "**/*Test*csproj",
   "editor.insertSpaces": true,
-  "editor.tabSize": 2,
   "editor.lineNumbers": "relative",
+  "editor.tabSize": 2,
+  "omnisharp.useModernNet": true,
   "vim.easymotion": true,
-  "vim.leader": ",",
   "vim.insertModeKeyBindings": [
     {
         "before": ["j", "k"],
         "after": ["<Esc>"]
     }
   ],
-  "dotnet-test-explorer.testProjectPath": "**/*Test*csproj",
-  "dotnet-test-explorer.autoExpandTree": true,
+  "vim.leader": ",",
   "[csharp]": {
     "editor.tabSize": 4,
   }

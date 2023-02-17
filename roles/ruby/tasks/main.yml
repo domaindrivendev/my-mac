@@ -1,6 +1,14 @@
 ---
-- include_tasks: rbenv.yml
-  when: use_rvm != 'true'
+- name: install rbenv
+  homebrew: name=rbenv state=latest
 
-- include_tasks: rvm.yml
-  when: use_rvm == 'true'
+- name: add ruby specifics to .zshrc.d
+  copy:
+    src: .zshrc.d/rbenv.sh
+    dest: ~/.zshrc.d/rbenv.sh
+    mode: 0755
+
+- name: install ruby {{ ruby_version }} if not present
+  shell: rbenv install {{ ruby_version }}
+  args:
+    creates: $HOME/.rbenv/versions/{{ ruby_version }}
