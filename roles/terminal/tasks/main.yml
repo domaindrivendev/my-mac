@@ -19,10 +19,10 @@
 - name: copy tmux.conf
   copy: src=tmux.conf dest=~/.tmux.conf
 
-- name: add tmux specifics to .zshrc.d
+- name: add utils.sh to .zshrc.d
   copy:
-    src: .zshrc.d/tmux.sh
-    dest: ~/.zshrc.d/tmux.sh
+    src: .zshrc.d/utils.sh
+    dest: ~/.zshrc.d/utils.sh
     mode: 0755
 
 - name: install jq

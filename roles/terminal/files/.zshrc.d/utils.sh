@@ -1,3 +1,9 @@
+xenv () {
+  set -o allexport
+  source .env
+  set +o allexport
+}
+
 tms () {
   local projName=$1
 
