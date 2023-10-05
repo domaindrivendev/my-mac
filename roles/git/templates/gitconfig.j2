@@ -9,9 +9,12 @@
   editor = vim
   excludesfile = ~/.gitignore
 
-[user] 
-  name = {{ git_global_name }}
-  email = {{ git_global_email }}
+[credential]
+  helper = osxkeychain
 
 [push]
   default = current
+
+[user]
+  email = {{ git_global_email }}
+  name = {{ git_global_name }}
