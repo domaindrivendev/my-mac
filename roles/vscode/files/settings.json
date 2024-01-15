@@ -5,6 +5,7 @@
   "editor.lineNumbers": "relative",
   "editor.tabSize": 2,
   "omnisharp.useModernNet": true,
+  "terminal.integrated.defaultProfile.osx": "zsh",
   "vim.easymotion": true,
   "vim.insertModeKeyBindings": [
     {

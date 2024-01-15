@@ -23,6 +23,8 @@
     - Tyriar.sort-lines
     - hashicorp.terraform
     - fabianlauer.vs-code-xml-format
+    - ms-vscode.cpptools
+    - ms-vscode.cpptools-extension-pack
 
 - name: copy settings
   copy: src={{item}} dest="~/Library/Application Support/Code/User/{{item}}"
