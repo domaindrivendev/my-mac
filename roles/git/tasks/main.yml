@@ -1,7 +1,6 @@
 ---
-- name: install git + tools
-  homebrew:
-    name: [ 'git', 'git-extras', 'zsh-git-prompt' ]
+- name: install git
+  homebrew: name=git state=latest
 
 - name: copy gitconfig
   template: src=gitconfig.j2 dest=~/.gitconfig
@@ -9,8 +8,14 @@
 - name: copy global .gitignore file
   copy: src=gitignore dest=~/.gitignore
 
-- name: add git specifics to .zshrc.d
+- name: install ohmyzsh
+  shell: >
+    curl -o- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh | bash -s -- --keep-zshrc
+  args:
+    creates: $HOME/.oh-my-zsh
+
+- name: add ohmyszh specifics to .zshrc.d
   copy:
-    src: .zshrc.d/git.sh
-    dest: ~/.zshrc.d/git.sh
+    src: .zshrc.d/ohmyzsh.sh
+    dest: ~/.zshrc.d/ohmyzsh.sh
     mode: 0755
