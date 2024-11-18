@@ -15,6 +15,15 @@
   ],
   "vim.leader": ",",
   "[csharp]": {
-    "editor.tabSize": 4,
+    "editor.insertSpaces": true,
+    "editor.tabSize": 4
+  },
+  "[ruby]": {
+    "editor.insertSpaces": true,
+    "editor.tabSize": 2
+  },
+  "[typescript]": {
+    "editor.insertSpaces": true,
+    "editor.tabSize": 2
   }
 }
