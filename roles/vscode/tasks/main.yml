@@ -16,7 +16,6 @@
     - esbenp.prettier-vscode
     - amatiasq.sort-imports
     - mikestead.dotenv
-    - msjsdiag.debugger-for-chrome
     - stylelint.vscode-stylelint
     - clinyong.vscode-css-modules
     - ms-azuretools.vscode-docker
@@ -25,6 +24,7 @@
     - fabianlauer.vs-code-xml-format
     - ms-vscode.cpptools
     - ms-vscode.cpptools-extension-pack
+    - GitHub.copilot
 
 - name: copy settings
   copy: src={{item}} dest="~/Library/Application Support/Code/User/{{item}}"
