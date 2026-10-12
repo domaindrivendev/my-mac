@@ -13,17 +13,5 @@
   args:
     creates: /Applications/iTerm.app
 
-- name: install tmux
-  homebrew: name=tmux state=latest
-
-- name: copy tmux.conf
-  copy: src=tmux.conf dest=~/.tmux.conf
-
-- name: add utils.sh to .zshrc.d
-  copy:
-    src: .zshrc.d/utils.sh
-    dest: ~/.zshrc.d/utils.sh
-    mode: 0755
-
 - name: install jq
   homebrew: name=jq state=latest

@@ -30,7 +30,7 @@ let mapleader=","
 inoremap jk <ESC>
 syntax enable
 filetype plugin indent on
-set statusline=%F\ %L\L
+set statusline=%F\ %l/%L\L
 set laststatus=2
 
 " Editor
@@ -107,9 +107,7 @@ let g:SuperTabCompletionType = 'context'
 map <leader>fr *:%s//
 
 " Rspec utils
-let s:rspec_tmux_command = "tmux send -t 1 'be rspec --color --drb {spec}' Enter" 
-"let s:rspec_tmux_command = "tmux send -t 1 'zeus test --color --drb {spec}' Enter" 
-let g:rspec_command = "!echo " . s:rspec_tmux_command . " && " . s:rspec_tmux_command
+let g:rspec_command = "!~/.config/herdr/scripts/rspec-herdr.sh {spec}"
 map <Leader>rf :call RunCurrentSpecFile()<cr><c-L>
 map <Leader>rn :call RunNearestSpec()<cr><c-L>
 map <Leader>rl :call RunLastSpec()<cr><c-L>

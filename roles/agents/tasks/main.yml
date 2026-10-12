@@ -1,0 +1,28 @@
+---
+- name: install claude-code
+  homebrew: name=claude-code state=latest
+
+- name: install codex
+  homebrew: name=codex state=latest
+
+- name: install grok-build
+  homebrew: name=grok-build state=latest
+
+- name: install herdr
+  homebrew: name=herdr state=latest
+
+- name: copy herdr config
+  copy: src=.config/herdr/config.toml dest=~/.config/herdr/config.toml
+
+- name: intall herdr integrations
+  shell: herdr integration install {{item}}
+  with_items:
+    - claude
+    - codex
+    - grok
+
+- name: copy herdr scripts
+  copy: src=.config/herdr/scripts/{{item}} dest=~/.config/herdr/scripts/ mode=0755 directory_mode=0755
+  with_items:
+    - create-layout.sh
+    - run-rspec.sh 

@@ -17,7 +17,7 @@
   copy: src=monakai.vim dest=~/.vim/colors/monokai.vim
 
 - name: copy vimrc
-  copy: src=vimrc dest=~/.vimrc
+  copy: src=.vimrc dest=~/.vimrc
 
 - name: install configured plugins
   shell: vim +PluginInstall +qall

@@ -1,0 +1,14 @@
+onboarding = false
+
+[ui]
+prompt_new_workspace_name = true
+prompt_new_tab_name = true
+agent_panel_sort = "priority"
+
+[theme]
+name = "terminal"
+auto_switch = false
+
+[keys]
+prefix = "ctrl+f"
+
